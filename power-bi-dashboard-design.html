@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Designing Power BI Dashboards People Actually Use | Data Reinvent</title>
+  <meta name="description" content="The data-modeling and layout habits that separate a Power BI dashboard people open daily from one they ignore." />
+  <link rel="icon" href="Data Reinvent Logo.png" type="image/png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============ HEADER / NAVIGATION ============ -->
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand">
+        <img src="Data Reinvent Logo.png" alt="Data Reinvent logo" class="brand-logo" />
+        <span class="brand-name">Data Reinvent</span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html#about" class="nav-link">About</a></li>
+          <li><a href="index.html#services" class="nav-link">Services</a></li>
+          <li><a href="index.html#articles" class="nav-link">Insights</a></li>
+          <li><a href="index.html#testimonials" class="nav-link">Testimonials</a></li>
+        </ul>
+        <a href="index.html#contact" class="btn btn-primary nav-cta">Get in Touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <div class="container-narrow">
+        <a href="index.html#articles" class="back-link">&larr; Back to Insights</a>
+
+        <div class="article-page-header">
+          <p class="article-category-tag">Power BI</p>
+          <h1 class="article-title">Designing Power BI Dashboards People Actually Use</h1>
+          <p class="article-deck">The data-modeling and layout habits that separate a dashboard people open daily from one they ignore.</p>
+
+          <div class="article-byline">
+            <span class="author-avatar" aria-hidden="true">DR</span>
+            <span class="byline-text">
+              <strong>Data Reinvent Team</strong>
+              <span>Power BI Consulting</span>
+            </span>
+            <span class="dot" aria-hidden="true">•</span>
+            <span class="article-readtime">8 min read</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-medium">
+        <figure class="article-cover">
+          <svg viewBox="0 0 400 240" role="img" aria-label="Illustration of a bar chart and trend line representing a Power BI dashboard.">
+            <defs>
+              <linearGradient id="gradPBIHero" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#e6399f"/>
+                <stop offset="100%" stop-color="#7b2ff7"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="240" fill="url(#gradPBIHero)"/>
+            <g fill="rgba(255,255,255,0.9)">
+              <rect x="60" y="150" width="34" height="60"/>
+              <rect x="110" y="110" width="34" height="100"/>
+              <rect x="160" y="70" width="34" height="140"/>
+              <rect x="210" y="130" width="34" height="80"/>
+            </g>
+            <polyline points="260,150 285,120 310,135 335,90" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+          </svg>
+        </figure>
+      </div>
+
+      <div class="container-narrow">
+        <div class="article-body">
+
+          <p>
+            Most organizations don't have a Power BI problem. They have a dozen Power BI reports that
+            were opened once, during the demo, and never again. The tool isn't the issue — the way the
+            dashboard was built is.
+          </p>
+
+          <h2>Most Dashboards Fail Before Any Visual Is Built</h2>
+          <p>
+            The most common failure point in Power BI projects has nothing to do with charts or colors.
+            It happens earlier, when a wide, flat Excel-style table gets imported as-is, with no
+            relationships, no dimension tables, and a pile of ad-hoc DAX measures written to patch over
+            the gaps. The report might look fine on day one. By the time someone asks a slightly
+            different question of the same data, it falls apart.
+          </p>
+
+          <h2>Start With the Model, Not the Canvas</h2>
+          <p>
+            A star schema — one or more fact tables (transactions, sales, ESG metrics, whatever the
+            report measures) connected to smaller dimension tables (date, product, department, region)
+            — isn't academic overhead. It's what makes filtering, slicing, and DAX measures behave
+            predictably as the report grows. A dashboard built on a proper model can answer a new
+            question in minutes. One built on a flat table usually needs to be rebuilt.
+          </p>
+          <p>
+            A related habit: prefer measures over calculated columns wherever possible. Measures
+            calculate at query time based on filter context, which keeps the model smaller and the
+            report more flexible than baking a fixed value into every row.
+          </p>
+
+          <h2>Design for the Question, Not the Data You Have</h2>
+          <p>
+            Before opening Power BI, it's worth writing down the three to five questions leadership
+            actually asks in a normal week — "are we on track this quarter," "which region is behind,"
+            "what changed since last month." Design each dashboard page to answer one of those directly.
+            The temptation is always to include every available field because it's there. Resist it.
+            A dashboard that tries to answer everything ends up answering nothing clearly.
+          </p>
+
+          <blockquote>
+            A dashboard that answers a question no one is asking will always lose to a spreadsheet
+            that answers the one they are.
+          </blockquote>
+
+          <h2>Visual Hierarchy and Restraint</h2>
+          <p>
+            A few habits consistently separate dashboards that get used from ones that don't:
+          </p>
+          <ul>
+            <li>One clear headline number or KPI per page, placed where the eye naturally lands first.</li>
+            <li>Consistent color meaning — reserve red and green for status, not decoration, so they carry weight when used.</li>
+            <li>Fewer chart types, used deliberately. A bar chart and a line chart, used well, beat five chart types used once each.</li>
+            <li>Whitespace treated as a design tool, not empty space to fill with another visual.</li>
+            <li>Aligned edges and consistent spacing — small misalignments are what make a report feel unfinished, even when the data is right.</li>
+          </ul>
+
+          <h2>Build for the Phone, Too</h2>
+          <p>
+            A large share of executive dashboard views happen on a phone, between meetings. Power BI's
+            mobile layout view lets you design a simplified, single-column version of a report
+            specifically for that context. Skipping this step is one of the fastest ways for a
+            dashboard to go unused by exactly the people it was built for.
+          </p>
+
+          <div class="callout">
+            <span class="callout-label">Tip</span>
+            <p>
+              Use bookmarks and drill-through pages to handle detail, instead of cramming every metric
+              onto one crowded canvas. Let users choose to go deeper — don't force everyone to scroll
+              past detail they don't need.
+            </p>
+          </div>
+
+          <h2>Iterate With Real Users</h2>
+          <p>
+            Ship a focused first version early, then watch how it's actually used — which pages get
+            opened, which visuals get clicked, which filters people reach for first. That usage pattern
+            is more honest feedback than any review meeting. The best Power BI dashboards are rarely
+            right on the first attempt; they're right after two or three rounds of watching real
+            behavior and adjusting.
+          </p>
+
+        </div>
+
+        <div class="article-footer-cta">
+          <h3>Ready for a dashboard your team actually opens?</h3>
+          <p>Our Power BI engagements start with the data model, not the canvas — so the report holds up as your questions change.</p>
+          <a href="index.html#contact" class="btn btn-primary">Talk to Our Team</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ RELATED ARTICLES ============ -->
+    <section class="related-section" aria-labelledby="related-heading">
+      <div class="container">
+        <h2 id="related-heading">Continue Reading</h2>
+        <div class="article-grid">
+
+          <article class="article-card">
+            <a class="article-card-media" href="excel-lambda-functions.html" aria-hidden="true" tabindex="-1">
+              <svg viewBox="0 0 400 240" role="img" aria-label="">
+                <defs>
+                  <linearGradient id="gradExcelRel2" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#1f7a4d"/>
+                    <stop offset="100%" stop-color="#2b4dfa"/>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="240" fill="url(#gradExcelRel2)"/>
+                <g stroke="rgba(255,255,255,0.35)" stroke-width="1.5">
+                  <line x1="0" y1="60" x2="400" y2="60"/>
+                  <line x1="0" y1="105" x2="400" y2="105"/>
+                  <line x1="0" y1="150" x2="400" y2="150"/>
+                  <line x1="0" y1="195" x2="400" y2="195"/>
+                  <line x1="90" y1="0" x2="90" y2="240"/>
+                  <line x1="200" y1="0" x2="200" y2="240"/>
+                  <line x1="310" y1="0" x2="310" y2="240"/>
+                </g>
+                <text x="200" y="140" text-anchor="middle" font-family="Georgia, serif" font-size="88" fill="#ffffff" opacity="0.95">&#955;</text>
+              </svg>
+            </a>
+            <div class="article-card-body">
+              <p class="article-category">Excel</p>
+              <h3><a href="excel-lambda-functions.html">Excel LAMBDA Functions: Building Your Own Formulas</a></h3>
+              <p class="article-desc">How to turn long, repeated formulas into named, reusable functions — no VBA required.</p>
+              <div class="article-meta">
+                <span class="article-author">Data Reinvent Team</span>
+                <span class="dot" aria-hidden="true">•</span>
+                <span class="article-readtime">7 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="article-card">
+            <a class="article-card-media" href="microsoft-copilot-for-business.html" aria-hidden="true" tabindex="-1">
+              <svg viewBox="0 0 400 240" role="img" aria-label="">
+                <defs>
+                  <linearGradient id="gradCopilotRel2" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#2b4dfa"/>
+                    <stop offset="100%" stop-color="#e6399f"/>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="240" fill="url(#gradCopilotRel2)"/>
+                <path d="M200 60 L214 106 L260 120 L214 134 L200 180 L186 134 L140 120 L186 106 Z" fill="#ffffff" opacity="0.95"/>
+                <path d="M300 70 L307 92 L330 100 L307 108 L300 130 L293 108 L270 100 L293 92 Z" fill="#ffffff" opacity="0.7"/>
+              </svg>
+            </a>
+            <div class="article-card-body">
+              <p class="article-category">Copilot</p>
+              <h3><a href="microsoft-copilot-for-business.html">Getting Real Productivity Out of Microsoft Copilot</a></h3>
+              <p class="article-desc">Why most Copilot rollouts stall at curiosity, and the role-based approach that gets teams to daily use.</p>
+              <div class="article-meta">
+                <span class="article-author">Data Reinvent Team</span>
+                <span class="dot" aria-hidden="true">•</span>
+                <span class="article-readtime">6 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="article-card">
+            <a class="article-card-media" href="esg-analytics-with-excel.html" aria-hidden="true" tabindex="-1">
+              <svg viewBox="0 0 400 240" role="img" aria-label="">
+                <defs>
+                  <linearGradient id="gradESGRel2" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#ff7a3d"/>
+                    <stop offset="100%" stop-color="#1f7a4d"/>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="240" fill="url(#gradESGRel2)"/>
+                <path d="M200 70 C170 75 150 100 150 130 C150 165 175 190 205 188 C185 165 185 130 210 105 C225 90 240 85 250 85 C240 130 210 175 175 195 C210 205 250 190 265 155 C280 120 265 85 200 70 Z" fill="#ffffff" opacity="0.9"/>
+              </svg>
+            </a>
+            <div class="article-card-body">
+              <p class="article-category">ESG Analytics</p>
+              <h3><a href="esg-analytics-with-excel.html">Building an ESG Reporting Model in Excel Before You Scale</a></h3>
+              <p class="article-desc">A structured, auditable way to consolidate ESG data in Excel — before or alongside a move to Power BI.</p>
+              <div class="article-meta">
+                <span class="article-author">Data Reinvent Team</span>
+                <span class="dot" aria-hidden="true">•</span>
+                <span class="article-readtime">7 min read</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <img src="Data Reinvent Logo.png" alt="Data Reinvent logo" class="brand-logo" />
+          <span class="brand-name">Data Reinvent</span>
+        </a>
+        <p>Reinventing the way organizations work with data.</p>
+      </div>
+
+      <nav class="footer-links" aria-label="Company">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="index.html#testimonials">Testimonials</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-links" aria-label="Services">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="index.html#services">Excel Consulting</a></li>
+          <li><a href="index.html#services">Power BI Solutions</a></li>
+          <li><a href="index.html#services">Copilot Solutions</a></li>
+          <li><a href="index.html#services">Data Analytics</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-links" aria-label="Insights &amp; Resources">
+        <h3>Insights</h3>
+        <ul>
+          <li><a href="excel-lambda-functions.html">Excel LAMBDA Functions</a></li>
+          <li><a href="power-bi-dashboard-design.html">Power BI Dashboard Design</a></li>
+          <li><a href="microsoft-copilot-for-business.html">Copilot for Business</a></li>
+          <li><a href="esg-analytics-with-excel.html">ESG Analytics with Excel</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year"></span> Data Reinvent. All rights reserved.</p>
+      <ul class="footer-legal">
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+      <a href="#top" class="back-to-top" id="backToTop" aria-label="Back to top">↑ Back to top</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

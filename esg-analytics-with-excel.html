@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building an ESG Reporting Model in Excel Before You Scale | Data Reinvent</title>
+  <meta name="description" content="A structured, auditable way to consolidate ESG data in Excel — before or alongside a move to Power BI." />
+  <link rel="icon" href="Data Reinvent Logo.png" type="image/png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============ HEADER / NAVIGATION ============ -->
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand">
+        <img src="Data Reinvent Logo.png" alt="Data Reinvent logo" class="brand-logo" />
+        <span class="brand-name">Data Reinvent</span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html#about" class="nav-link">About</a></li>
+          <li><a href="index.html#services" class="nav-link">Services</a></li>
+          <li><a href="index.html#articles" class="nav-link">Insights</a></li>
+          <li><a href="index.html#testimonials" class="nav-link">Testimonials</a></li>
+        </ul>
+        <a href="index.html#contact" class="btn btn-primary nav-cta">Get in Touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <div class="container-narrow">
+        <a href="index.html#articles" class="back-link">&larr; Back to Insights</a>
+
+        <div class="article-page-header">
+          <p class="article-category-tag">ESG Analytics</p>
+          <h1 class="article-title">Building an ESG Reporting Model in Excel Before You Scale</h1>
+          <p class="article-deck">A structured, auditable way to consolidate ESG data in Excel — before or alongside a move to Power BI.</p>
+
+          <div class="article-byline">
+            <span class="author-avatar" aria-hidden="true">DR</span>
+            <span class="byline-text">
+              <strong>Data Reinvent Team</strong>
+              <span>ESG Analytics Solutions</span>
+            </span>
+            <span class="dot" aria-hidden="true">•</span>
+            <span class="article-readtime">7 min read</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-medium">
+        <figure class="article-cover">
+          <svg viewBox="0 0 400 240" role="img" aria-label="Illustration of a leaf shape representing ESG and sustainability data.">
+            <defs>
+              <linearGradient id="gradESGHero" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#ff7a3d"/>
+                <stop offset="100%" stop-color="#1f7a4d"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="240" fill="url(#gradESGHero)"/>
+            <path d="M200 70 C170 75 150 100 150 130 C150 165 175 190 205 188 C185 165 185 130 210 105 C225 90 240 85 250 85 C240 130 210 175 175 195 C210 205 250 190 265 155 C280 120 265 85 200 70 Z" fill="#ffffff" opacity="0.9"/>
+          </svg>
+        </figure>
+      </div>
+
+      <div class="container-narrow">
+        <div class="article-body">
+
+          <p>
+            Long before an organization is ready for a live ESG dashboard, it usually has a much more
+            basic problem: the underlying data lives in a dozen disconnected spreadsheets, updated by a
+            dozen different people, in a dozen slightly different formats. Power BI won't fix that on
+            its own. A better Excel model will.
+          </p>
+
+          <h2>ESG Data Usually Starts Messy</h2>
+          <p>
+            Energy use comes from facilities. Headcount and diversity figures come from HR. Supplier
+            data comes from procurement. Each team tracks it their own way, in their own units, on their
+            own schedule — and every reporting cycle, someone manually copies and pastes all of it into
+            a single "master" file. That process is fragile by design: one changed column order, one
+            missed tab, and the consolidated numbers are quietly wrong.
+          </p>
+
+          <h2>Separate Inputs, Calculations, and Outputs</h2>
+          <p>
+            The single most useful structural change is to stop mixing raw data, calculations, and
+            reporting output on the same sheets. A workbook built around ESG reporting holds up far
+            better with three distinct layers:
+          </p>
+          <ul>
+            <li>
+              <strong>Input sheets</strong> — one per source, holding only what was submitted, in its
+              original units, with minimal or no formulas. These are the closest thing to a source of
+              truth and should rarely be edited by hand once loaded.
+            </li>
+            <li>
+              <strong>Calculation layer</strong> — converts units, applies emission factors or other
+              standard coefficients, and aligns everything to a common reporting period. All the "real"
+              logic lives here, in one place, instead of scattered across dozens of copied formulas.
+            </li>
+            <li>
+              <strong>Reporting layer</strong> — the tables and charts leadership and auditors actually
+              see. Every number here should trace back to the calculation layer through a formula —
+              never typed in directly.
+            </li>
+          </ul>
+
+          <h2>Build an Audit Trail Into the Model</h2>
+          <p>
+            ESG figures increasingly face external scrutiny — assurance reviews, investor due diligence,
+            regulatory disclosure. A model that can't show where a number came from creates real risk.
+            Two habits go a long way: keep a dedicated sheet documenting each data source, the emission
+            factor or conversion reference used and its version or publication year, and the date each
+            input was last refreshed. When someone asks "where did this number come from" six months
+            later, the answer should be a lookup, not a memory exercise.
+          </p>
+
+          <blockquote>
+            You don't need new software to fix bad ESG data — you need a model that doesn't let bad
+            habits back in.
+          </blockquote>
+
+          <h2>Common Pitfalls</h2>
+          <ul>
+            <li>Hard-coded values pasted into a report cell instead of pulled through a formula.</li>
+            <li>Raw and calculated figures mixed on the same sheet, making it unclear which is which.</li>
+            <li>No version control — multiple files named things like "ESG_report_v3_final_reallyfinal.xlsx."</li>
+            <li>Manual copy-paste between workbooks, which silently breaks linked formulas.</li>
+          </ul>
+
+          <div class="callout">
+            <span class="callout-label">Tip</span>
+            <p>
+              Convert input ranges into proper Excel Tables (Insert → Table) rather than leaving them as
+              raw ranges. Formulas and charts built on a Table automatically extend as new rows of data
+              are added each reporting period — one less thing to remember to update manually.
+            </p>
+          </div>
+
+          <h2>When to Graduate to Power BI</h2>
+          <p>
+            Once the three-layer structure is in place and reliable, moving to Power BI becomes a much
+            smaller step than it would have been from a messy starting point. The structured input and
+            calculation tables can feed Power Query directly, and Excel can remain the intake layer that
+            business units are already comfortable using — while Power BI takes over live dashboards,
+            multi-period trending, and distribution to a wider audience. The point at which this move
+            pays off is usually when reporting frequency increases — quarterly to monthly, for example
+            — or when multiple business units need to see the same data in real time.
+          </p>
+
+        </div>
+
+        <div class="article-footer-cta">
+          <h3>Need your ESG data audit-ready before the next reporting cycle?</h3>
+          <p>We help sustainability teams build structured, traceable ESG models in Excel — and scale them into Power BI when it's time.</p>
+          <a href="index.html#contact" class="btn btn-primary">Talk to Our Team</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ RELATED ARTICLES ============ -->
+    <section class="related-section" aria-labelledby="related-heading">
+      <div class="container">
+        <h2 id="related-heading">Continue Reading</h2>
+        <div class="article-grid">
+
+          <article class="article-card">
+            <a class="article-card-media" href="excel-lambda-functions.html" aria-hidden="true" tabindex="-1">
+              <svg viewBox="0 0 400 240" role="img" aria-label="">
+                <defs>
+                  <linearGradient id="gradExcelRel4" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#1f7a4d"/>
+                    <stop offset="100%" stop-color="#2b4dfa"/>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="240" fill="url(#gradExcelRel4)"/>
+                <g stroke="rgba(255,255,255,0.35)" stroke-width="1.5">
+                  <line x1="0" y1="60" x2="400" y2="60"/>
+                  <line x1="0" y1="105" x2="400" y2="105"/>
+                  <line x1="0" y1="150" x2="400" y2="150"/>
+                  <line x1="0" y1="195" x2="400" y2="195"/>
+                  <line x1="90" y1="0" x2="90" y2="240"/>
+                  <line x1="200" y1="0" x2="200" y2="240"/>
+                  <line x1="310" y1="0" x2="310" y2="240"/>
+                </g>
+                <text x="200" y="140" text-anchor="middle" font-family="Georgia, serif" font-size="88" fill="#ffffff" opacity="0.95">&#955;</text>
+              </svg>
+            </a>
+            <div class="article-card-body">
+              <p class="article-category">Excel</p>
+              <h3><a href="excel-lambda-functions.html">Excel LAMBDA Functions: Building Your Own Formulas</a></h3>
+              <p class="article-desc">How to turn long, repeated formulas into named, reusable functions — no VBA required.</p>
+              <div class="article-meta">
+                <span class="article-author">Data Reinvent Team</span>
+                <span class="dot" aria-hidden="true">•</span>
+                <span class="article-readtime">7 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="article-card">
+            <a class="article-card-media" href="power-bi-dashboard-design.html" aria-hidden="true" tabindex="-1">
+              <svg viewBox="0 0 400 240" role="img" aria-label="">
+                <defs>
+                  <linearGradient id="gradPBIRel4" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#e6399f"/>
+                    <stop offset="100%" stop-color="#7b2ff7"/>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="240" fill="url(#gradPBIRel4)"/>
+                <g fill="rgba(255,255,255,0.9)">
+                  <rect x="60" y="150" width="34" height="60"/>
+                  <rect x="110" y="110" width="34" height="100"/>
+                  <rect x="160" y="70" width="34" height="140"/>
+                  <rect x="210" y="130" width="34" height="80"/>
+                </g>
+                <polyline points="260,150 285,120 310,135 335,90" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+              </svg>
+            </a>
+            <div class="article-card-body">
+              <p class="article-category">Power BI</p>
+              <h3><a href="power-bi-dashboard-design.html">Designing Power BI Dashboards People Actually Use</a></h3>
+              <p class="article-desc">The data-modeling and layout habits that separate a dashboard people open daily from one they ignore.</p>
+              <div class="article-meta">
+                <span class="article-author">Data Reinvent Team</span>
+                <span class="dot" aria-hidden="true">•</span>
+                <span class="article-readtime">8 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="article-card">
+            <a class="article-card-media" href="microsoft-copilot-for-business.html" aria-hidden="true" tabindex="-1">
+              <svg viewBox="0 0 400 240" role="img" aria-label="">
+                <defs>
+                  <linearGradient id="gradCopilotRel4" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#2b4dfa"/>
+                    <stop offset="100%" stop-color="#e6399f"/>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="240" fill="url(#gradCopilotRel4)"/>
+                <path d="M200 60 L214 106 L260 120 L214 134 L200 180 L186 134 L140 120 L186 106 Z" fill="#ffffff" opacity="0.95"/>
+                <path d="M300 70 L307 92 L330 100 L307 108 L300 130 L293 108 L270 100 L293 92 Z" fill="#ffffff" opacity="0.7"/>
+              </svg>
+            </a>
+            <div class="article-card-body">
+              <p class="article-category">Copilot</p>
+              <h3><a href="microsoft-copilot-for-business.html">Getting Real Productivity Out of Microsoft Copilot</a></h3>
+              <p class="article-desc">Why most Copilot rollouts stall at curiosity, and the role-based approach that gets teams to daily use.</p>
+              <div class="article-meta">
+                <span class="article-author">Data Reinvent Team</span>
+                <span class="dot" aria-hidden="true">•</span>
+                <span class="article-readtime">6 min read</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <img src="Data Reinvent Logo.png" alt="Data Reinvent logo" class="brand-logo" />
+          <span class="brand-name">Data Reinvent</span>
+        </a>
+        <p>Reinventing the way organizations work with data.</p>
+      </div>
+
+      <nav class="footer-links" aria-label="Company">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="index.html#testimonials">Testimonials</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-links" aria-label="Services">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="index.html#services">Excel Consulting</a></li>
+          <li><a href="index.html#services">Power BI Solutions</a></li>
+          <li><a href="index.html#services">Copilot Solutions</a></li>
+          <li><a href="index.html#services">Data Analytics</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-links" aria-label="Insights &amp; Resources">
+        <h3>Insights</h3>
+        <ul>
+          <li><a href="excel-lambda-functions.html">Excel LAMBDA Functions</a></li>
+          <li><a href="power-bi-dashboard-design.html">Power BI Dashboard Design</a></li>
+          <li><a href="microsoft-copilot-for-business.html">Copilot for Business</a></li>
+          <li><a href="esg-analytics-with-excel.html">ESG Analytics with Excel</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year"></span> Data Reinvent. All rights reserved.</p>
+      <ul class="footer-legal">
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+      <a href="#top" class="back-to-top" id="backToTop" aria-label="Back to top">↑ Back to top</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

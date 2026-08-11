@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Excel LAMBDA Functions: Building Your Own Formulas | Data Reinvent</title>
+  <meta name="description" content="How to turn long, repeated Excel formulas into named, reusable LAMBDA functions — no VBA required." />
+  <link rel="icon" href="Data Reinvent Logo.png" type="image/png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============ HEADER / NAVIGATION ============ -->
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand">
+        <img src="Data Reinvent Logo.png" alt="Data Reinvent logo" class="brand-logo" />
+        <span class="brand-name">Data Reinvent</span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html#about" class="nav-link">About</a></li>
+          <li><a href="index.html#services" class="nav-link">Services</a></li>
+          <li><a href="index.html#articles" class="nav-link">Insights</a></li>
+          <li><a href="index.html#testimonials" class="nav-link">Testimonials</a></li>
+        </ul>
+        <a href="index.html#contact" class="btn btn-primary nav-cta">Get in Touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <div class="container-narrow">
+        <a href="index.html#articles" class="back-link">&larr; Back to Insights</a>
+
+        <div class="article-page-header">
+          <p class="article-category-tag">Excel</p>
+          <h1 class="article-title">Excel LAMBDA Functions: Building Your Own Formulas</h1>
+          <p class="article-deck">How to turn long, repeated formulas into named, reusable functions — no VBA required.</p>
+
+          <div class="article-byline">
+            <span class="author-avatar" aria-hidden="true">DR</span>
+            <span class="byline-text">
+              <strong>Data Reinvent Team</strong>
+              <span>Excel Consulting &amp; Training</span>
+            </span>
+            <span class="dot" aria-hidden="true">•</span>
+            <span class="article-readtime">7 min read</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-medium">
+        <figure class="article-cover">
+          <svg viewBox="0 0 400 240" role="img" aria-label="Illustration representing an Excel LAMBDA function, shown as a lambda symbol over a spreadsheet grid.">
+            <defs>
+              <linearGradient id="gradExcelHero" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#1f7a4d"/>
+                <stop offset="100%" stop-color="#2b4dfa"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="240" fill="url(#gradExcelHero)"/>
+            <g stroke="rgba(255,255,255,0.35)" stroke-width="1.5">
+              <line x1="0" y1="60" x2="400" y2="60"/>
+              <line x1="0" y1="105" x2="400" y2="105"/>
+              <line x1="0" y1="150" x2="400" y2="150"/>
+              <line x1="0" y1="195" x2="400" y2="195"/>
+              <line x1="90" y1="0" x2="90" y2="240"/>
+              <line x1="200" y1="0" x2="200" y2="240"/>
+              <line x1="310" y1="0" x2="310" y2="240"/>
+            </g>
+            <text x="200" y="140" text-anchor="middle" font-family="Georgia, serif" font-size="88" fill="#ffffff" opacity="0.95">&#955;</text>
+          </svg>
+        </figure>
+      </div>
+
+      <div class="container-narrow">
+        <div class="article-body">
+
+          <p>
+            If you've ever copied a fifty-character formula across forty columns, then had to fix a
+            typo in all forty of them, you already understand the problem LAMBDA was built to solve.
+            Excel formulas have always been powerful — but until recently, there was no clean way to
+            turn a piece of formula logic into something you could name, reuse, and trust.
+          </p>
+
+          <h2>The Problem With Long, Repeated Formulas</h2>
+          <p>
+            Most complex Excel models end up with the same calculation pattern repeated across many
+            cells — a margin calculation, a weighted average, a tax adjustment — each one pasted and
+            re-pasted with slightly different cell references. It works, until it doesn't: one broken
+            reference in one copy of the formula, and the model quietly produces the wrong answer
+            somewhere no one is looking.
+          </p>
+          <p>
+            The traditional fix was VBA: write a custom function once, call it everywhere. But VBA
+            requires a macro-enabled file, comfort with code, and a level of IT approval that many
+            finance and operations teams simply don't have. LAMBDA gives you most of the same benefit,
+            natively, in a normal formula.
+          </p>
+
+          <h2>What LAMBDA Actually Does</h2>
+          <p>
+            LAMBDA lets you define your own function directly inside Excel — a set of named parameters,
+            plus a calculation that uses them. On its own, a LAMBDA formula looks like this:
+          </p>
+
+          <div class="code-block"><code>=LAMBDA(price, tax_rate, price * (1 + tax_rate))</code></div>
+
+          <p>
+            Typed into a cell like that, it isn't very useful yet — Excel expects you to supply the
+            arguments immediately. The real power comes from naming it. Open the Name Manager
+            (Formulas → Name Manager → New), give it a name like <code>PRICE_WITH_TAX</code>, and paste
+            the LAMBDA into the "Refers to" box. From that point on, it behaves like any built-in Excel
+            function:
+          </p>
+
+          <div class="code-block"><code>=PRICE_WITH_TAX(A2, 0.08)</code></div>
+
+          <p>
+            One definition, used everywhere. Fix the logic once in the Name Manager, and every cell
+            that calls it updates automatically.
+          </p>
+
+          <h2>Combining LAMBDA With LET for Readability</h2>
+          <p>
+            LAMBDA formulas can get hard to read once the logic has more than one step. That's where
+            <code>LET</code> helps — it lets you name intermediate values inside the formula itself,
+            so the final calculation reads more like a sentence than a puzzle:
+          </p>
+
+          <div class="code-block"><code>=LAMBDA(revenue, cost,
+&nbsp;&nbsp;LET(
+&nbsp;&nbsp;&nbsp;&nbsp;profit, revenue - cost,
+&nbsp;&nbsp;&nbsp;&nbsp;margin, profit / revenue,
+&nbsp;&nbsp;&nbsp;&nbsp;margin
+&nbsp;&nbsp;)
+)</code></div>
+
+          <p>
+            Named and saved as <code>MARGIN_PCT</code>, this becomes a formula a new analyst can
+            understand at a glance — without opening a training manual or asking the person who built it.
+          </p>
+
+          <blockquote>
+            A formula you have to explain in a comment is a formula that should have a name.
+          </blockquote>
+
+          <h2>A Practical Example: Recursive LAMBDA</h2>
+          <p>
+            One genuinely new capability LAMBDA brings is recursion — a named LAMBDA can call itself.
+            This opens up calculations that were previously only practical in VBA, such as a factorial,
+            a running compounding calculation, or breaking a delimited string into pieces one at a time.
+            A simple factorial function, saved as <code>FACTORIAL</code>, looks like this:
+          </p>
+
+          <div class="code-block"><code>=LAMBDA(n, IF(n&lt;=1, 1, n * FACTORIAL(n - 1)))</code></div>
+
+          <p>
+            Because the name refers back to itself inside its own definition, Excel keeps calling it
+            with a smaller value of <code>n</code> until it reaches the base case. It's the same logic
+            a programmer would write in any language — just expressed in a cell.
+          </p>
+
+          <div class="callout">
+            <span class="callout-label">Tip</span>
+            <p>
+              Use the description field in Name Manager to document what each parameter expects. It
+              shows up as on-screen help when someone else types the function — cheap documentation
+              that pays off the first time you hand the workbook to a colleague.
+            </p>
+          </div>
+
+          <h2>When LAMBDA Still Isn't the Right Tool</h2>
+          <p>
+            LAMBDA is excellent for calculation logic, but it isn't a replacement for everything VBA or
+            Power Query do. If you need to read or write files, trigger actions based on events, loop
+            through worksheets, or handle very large iterative processes, those tools are still the
+            better fit. Think of LAMBDA as the way to make your <em>formulas</em> reusable and
+            maintainable — not as a general-purpose automation engine.
+          </p>
+
+          <p>
+            The mindset shift is the valuable part: once you start naming reusable logic instead of
+            copy-pasting it, models get easier to audit, easier to hand off, and much harder to quietly
+            break.
+          </p>
+
+        </div>
+
+        <div class="article-footer-cta">
+          <h3>Want your team building formulas like this?</h3>
+          <p>Our Excel consulting and training engagements are built around exactly this kind of practical, model-building skill.</p>
+          <a href="index.html#contact" class="btn btn-primary">Talk to Our Team</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ RELATED ARTICLES ============ -->
+    <section class="related-section" aria-labelledby="related-heading">
+      <div class="container">
+        <h2 id="related-heading">Continue Reading</h2>
+        <div class="article-grid">
+
+          <article class="article-card">
+            <a class="article-card-media" href="power-bi-dashboard-design.html" aria-hidden="true" tabindex="-1">
+              <svg viewBox="0 0 400 240" role="img" aria-label="">
+                <defs>
+                  <linearGradient id="gradPBIRel1" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#e6399f"/>
+                    <stop offset="100%" stop-color="#7b2ff7"/>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="240" fill="url(#gradPBIRel1)"/>
+                <g fill="rgba(255,255,255,0.9)">
+                  <rect x="60" y="150" width="34" height="60"/>
+                  <rect x="110" y="110" width="34" height="100"/>
+                  <rect x="160" y="70" width="34" height="140"/>
+                  <rect x="210" y="130" width="34" height="80"/>
+                </g>
+                <polyline points="260,150 285,120 310,135 335,90" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+              </svg>
+            </a>
+            <div class="article-card-body">
+              <p class="article-category">Power BI</p>
+              <h3><a href="power-bi-dashboard-design.html">Designing Power BI Dashboards People Actually Use</a></h3>
+              <p class="article-desc">The data-modeling and layout habits that separate a dashboard people open daily from one they ignore.</p>
+              <div class="article-meta">
+                <span class="article-author">Data Reinvent Team</span>
+                <span class="dot" aria-hidden="true">•</span>
+                <span class="article-readtime">8 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="article-card">
+            <a class="article-card-media" href="microsoft-copilot-for-business.html" aria-hidden="true" tabindex="-1">
+              <svg viewBox="0 0 400 240" role="img" aria-label="">
+                <defs>
+                  <linearGradient id="gradCopilotRel1" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#2b4dfa"/>
+                    <stop offset="100%" stop-color="#e6399f"/>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="240" fill="url(#gradCopilotRel1)"/>
+                <path d="M200 60 L214 106 L260 120 L214 134 L200 180 L186 134 L140 120 L186 106 Z" fill="#ffffff" opacity="0.95"/>
+                <path d="M300 70 L307 92 L330 100 L307 108 L300 130 L293 108 L270 100 L293 92 Z" fill="#ffffff" opacity="0.7"/>
+              </svg>
+            </a>
+            <div class="article-card-body">
+              <p class="article-category">Copilot</p>
+              <h3><a href="microsoft-copilot-for-business.html">Getting Real Productivity Out of Microsoft Copilot</a></h3>
+              <p class="article-desc">Why most Copilot rollouts stall at curiosity, and the role-based approach that gets teams to daily use.</p>
+              <div class="article-meta">
+                <span class="article-author">Data Reinvent Team</span>
+                <span class="dot" aria-hidden="true">•</span>
+                <span class="article-readtime">6 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="article-card">
+            <a class="article-card-media" href="esg-analytics-with-excel.html" aria-hidden="true" tabindex="-1">
+              <svg viewBox="0 0 400 240" role="img" aria-label="">
+                <defs>
+                  <linearGradient id="gradESGRel1" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#ff7a3d"/>
+                    <stop offset="100%" stop-color="#1f7a4d"/>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="240" fill="url(#gradESGRel1)"/>
+                <path d="M200 70 C170 75 150 100 150 130 C150 165 175 190 205 188 C185 165 185 130 210 105 C225 90 240 85 250 85 C240 130 210 175 175 195 C210 205 250 190 265 155 C280 120 265 85 200 70 Z" fill="#ffffff" opacity="0.9"/>
+              </svg>
+            </a>
+            <div class="article-card-body">
+              <p class="article-category">ESG Analytics</p>
+              <h3><a href="esg-analytics-with-excel.html">Building an ESG Reporting Model in Excel Before You Scale</a></h3>
+              <p class="article-desc">A structured, auditable way to consolidate ESG data in Excel — before or alongside a move to Power BI.</p>
+              <div class="article-meta">
+                <span class="article-author">Data Reinvent Team</span>
+                <span class="dot" aria-hidden="true">•</span>
+                <span class="article-readtime">7 min read</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <img src="Data Reinvent Logo.png" alt="Data Reinvent logo" class="brand-logo" />
+          <span class="brand-name">Data Reinvent</span>
+        </a>
+        <p>Reinventing the way organizations work with data.</p>
+      </div>
+
+      <nav class="footer-links" aria-label="Company">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="index.html#testimonials">Testimonials</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-links" aria-label="Services">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="index.html#services">Excel Consulting</a></li>
+          <li><a href="index.html#services">Power BI Solutions</a></li>
+          <li><a href="index.html#services">Copilot Solutions</a></li>
+          <li><a href="index.html#services">Data Analytics</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-links" aria-label="Insights &amp; Resources">
+        <h3>Insights</h3>
+        <ul>
+          <li><a href="excel-lambda-functions.html">Excel LAMBDA Functions</a></li>
+          <li><a href="power-bi-dashboard-design.html">Power BI Dashboard Design</a></li>
+          <li><a href="microsoft-copilot-for-business.html">Copilot for Business</a></li>
+          <li><a href="esg-analytics-with-excel.html">ESG Analytics with Excel</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year"></span> Data Reinvent. All rights reserved.</p>
+      <ul class="footer-legal">
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+      <a href="#top" class="back-to-top" id="backToTop" aria-label="Back to top">↑ Back to top</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
