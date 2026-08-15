@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>จัดรูปแบบตัวเลขผลต่างใน Excel โดยไม่ต้องพิมพ์คอมม่าเอง | Data Reinvent</title>
+  <meta name="description" content="วิธีใช้ TEXT ร่วมกับ CONCATENATE เพื่อให้ป้ายตัวเลขอย่าง 23,233 (912) จัดรูปแบบตัวเองโดยอัตโนมัติ แทนที่จะต้องพิมพ์คอมม่าทีละแถวนับร้อยบรรทัด" />
+  <link rel="icon" href="Data Reinvent Logo.png" type="image/png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============ HEADER / NAVIGATION ============ -->
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand">
+        <img src="Data Reinvent Logo.png" alt="Data Reinvent logo" class="brand-logo" />
+        <span class="brand-name">Data Reinvent</span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html#about" class="nav-link">What I Write About</a></li>
+          <li><a href="index.html#services" class="nav-link">Blog</a></li>
+          <li><a href="index.html#articles" class="nav-link">Data Wisdom</a></li>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <div class="container-narrow">
+        <a href="index.html#articles" class="back-link">&larr; Back to Insights</a>
+
+        <div class="article-page-header">
+          <p class="article-category-tag">Excel</p>
+          <h1 class="article-title">การ Format ตัวเลขปีปัจจุบัน (ผลต่าง)</h1>
+          <p class="article-deck">เทคนิคผสาน TEXT กับ CONCATENATE ที่เปลี่ยนตัวเลขเทียบปีต่อปีดิบๆ ให้กลายเป็นป้ายตัวเลขพร้อมใช้งานในรายงาน โดยไม่ต้องมานั่งพิมพ์คอมม่าทีละแถว</p>
+
+          <div class="article-byline">
+            <span class="author-avatar" aria-hidden="true">DR</span>
+            <span class="byline-text">
+              <strong>Data Reinvent Team</strong>
+              <span>ที่ปรึกษาและฝึกอบรม Excel</span>
+            </span>
+            <span class="dot" aria-hidden="true">•</span>
+            <span class="article-readtime">อ่าน 5 นาที</span>
+          </div>
+        </div>
+      </div>
+
+<div class="container-medium">
+<figure class="article-cover">
+  <img src="Format Number.PNG" alt="ตัวอย่างการจัดรูปแบบตัวเลขความแปรปรวนใน Excel" />
+</figure>
+</div>
+
+      <div class="container-narrow">
+        <div class="article-body">
+
+          <p>
+            การปรับแต่ง Format ตัวเลขมีนัยยะสำคัญ ซึ่งทำให้คนดูสามารถที่จะตีความเข้าใจตัวเลขนั้นๆ 
+            ภายในระยะเวลาสั้นๆ ซึ่งเป็นสิ่งที่สำคัญมากๆ ครับ โดยเฉพาะอย่างยิ่ง การเปรียบเทียบตัวเลข
+            ระหว่างปัจจุบันและปีก่อน เพื่อให้เห็นผลต่างตัวเลข เช่น ตัวเลขยอดขาย 
+            เราต้องการทราบว่าตัวเลขยอดขายของปีปัจจุบันมีการเติบโตหรือลดลง
+          </p>
+
+          <h2>ยอดตัวเลขปีปัจจุบัน (ผลต่าง)</h2>
+          <p>
+            รูปแบบที่ใช้กันแพร่หลายในรายงานฝ่ายการเงินและฝ่ายปฏิบัติการ คือการแสดงตัวเลขของปีปัจจุบัน แล้วตามด้วย
+            ผลต่างจากปีก่อนในวงเล็บทันที
+          </p>
+          <div class="code-block"><code>23,233 (912)</code></div>
+          <p>
+            ตัวเลขนี้มาจาก <code>23,233 − 22,321 = 912</code> แล้วนำผลต่างมาติดไว้กับตัวเลขหลักเลย ทำให้คนดู
+            ตีความได้ภายในเสี้ยววินาที ไม่ต้องเหลือบไปดูคอลัมน์อื่นหรือเปิดกราฟแยกต่างหาก ปัญหาอยู่ที่การสร้างมัน
+            ขึ้นมา ถ้ามีแค่สี่ห้าแถวก็พิมพ์เองได้ไม่ยาก แต่ถ้าข้อมูลที่ต้องทำมีเป็นหลักร้อยแถว แต่ละแถวก็ต้องใส่
+            คอมม่าคั่นหลักพันเองทุกครั้ง งานนี้กินเวลาไปครึ่งค่อนวันแน่นอน
+          </p>
+
+          <h2>ทำไม CONCATENATE เพียงอย่างเดียวถึงไม่พอ</h2>
+          <p>
+            วิธีแรกที่มักจะนึกถึงคือฟังก์ชัน <code>CONCATENATE</code> ของ Excel ซึ่งใช้เชื่อมข้อความและตัวเลข
+            เข้าด้วยกัน
+          </p>
+          <div class="code-block"><code>=CONCATENATE(text1, text2, …, text_n)</code></div>
+          <p>
+            เมื่อนำมาใช้กับป้ายตัวเลขผลต่าง จะเขียนได้ดังนี้
+          </p>
+          <div class="code-block"><code>=CONCATENATE(D4," (",E4,")")</code></div>
+          <p>
+            ลากสูตรนี้ลงไปทั้งคอลัมน์ ทุกแถวก็จะถูกเชื่อมเป็นข้อความเดียวกันจริง แต่พอลองดูผลลัพธ์กับตัวเลขที่มี
+            หลักจริงจัง เช่น ตัวเลขหลักล้าน จะพบว่าออกมาเป็น <code>1234567 (91234)</code> โดยไม่มีคอมม่าคั่นหลักพัน
+            เลย และต่อให้เลือกคอลัมน์นั้นแล้วไปที่ Format Cells → Custom → <code>#,##0</code> ก็ไม่มีอะไรเปลี่ยนแปลง
+            เพราะเมื่อ <code>CONCATENATE</code> ทำงานเสร็จ ผลลัพธ์ที่ได้ไม่ใช่ตัวเลขอีกต่อไป แต่กลายเป็นข้อความ
+            (Text) ซึ่งการจัดรูปแบบตัวเลขไม่มีผลกับข้อความ
+          </p>
+
+          <h2>จัดรูปแบบตัวเลขก่อน แล้วค่อยเชื่อมเข้าด้วยกัน</h2>
+          <p>
+            วิธีแก้คือจัดรูปแบบตัวเลขแต่ละตัวให้เรียบร้อยก่อน แล้วค่อยส่งข้อความที่จัดรูปแบบแล้วให้
+            <code>CONCATENATE</code> เชื่อมต่อ ซึ่งนี่คือหน้าที่ของฟังก์ชัน <code>TEXT</code> โดยตรง
+          </p>
+          <div class="code-block"><code>=TEXT(value, format_text)</code></div>
+          <p>
+            <code>value</code> คือตัวเลขที่ต้องการจัดรูปแบบ ส่วน <code>format_text</code> คือรูปแบบตัวเลขแบบ
+            เดียวกับที่พิมพ์ใน Format Cells เช่น <code>"#,##0"</code>, <code>"0.0%"</code>,
+            <code>"$#,##0.00"</code> เมื่อครอบตัวเลขทั้งสองตัวด้วย <code>TEXT</code> ก่อนนำไปเชื่อม ผลลัพธ์ก็จะได้
+            คอมม่ากลับคืนมา
+          </p>
+          <div class="code-block"><code>=CONCATENATE(TEXT(D4,"#,##0"), " (", TEXT(E4, "#,##0"), ")")</code></div>
+          <p>
+            ลากสูตรนี้ลงไปกี่ร้อยแถวก็ได้ ทุกแถวจะจัดรูปแบบตัวเองโดยอัตโนมัติ ไม่ต้องใส่คอมม่าเอง ไม่ต้องพิมพ์ซ้ำ
+            ทีละบรรทัด
+          </p>
+
+          <blockquote>
+            ตัวเลขที่คนดูต้องเพ่งอ่าน คือตัวเลขที่คนดูจะข้ามผ่านไปเฉยๆ
+          </blockquote>
+
+          <h2>ทำให้สูตรยาวๆ อ่านง่ายขึ้น</h2>
+          <p>
+            เมื่อสูตรมีฟังก์ชันซ้อนกันสองชั้นและมีหลายอาร์กิวเมนต์ มันจะเริ่มอ่านเข้าใจยากในทันที ซึ่งมีผลตอนที่
+            ต้องกลับมาแก้ไขในภายหลัง ในช่องใส่สูตร การกด <strong>Alt + Enter</strong> จะช่วยขึ้นบรรทัดใหม่ได้ และ
+            ตามด้วยการเว้นวรรคจะช่วยให้แต่ละอาร์กิวเมนต์อยู่คนละบรรทัด
+          </p>
+          <div class="code-block"><code>=CONCATENATE(
+&nbsp;&nbsp;TEXT(D4,"#,##0"), " (",
+&nbsp;&nbsp;TEXT(E4,"#,##0"), ")"
+)</code></div>
+          <p>
+            ผลลัพธ์ที่คำนวณได้เหมือนเดิมทุกประการ ต่างกันแค่ว่าอีกหกเดือนข้างหน้า ไม่ว่าจะเป็นตัวเราเองหรือ
+            เพื่อนร่วมงานที่เปิดไฟล์นี้ขึ้นมา ก็จะเข้าใจได้ทันทีว่าสูตรนี้ทำอะไร โดยไม่ต้องมานั่งไล่ทวนใหม่
+          </p>
+
+          <div class="callout">
+            <span class="callout-label">Tip</span>
+            <p>
+              <code>CONCATENATE</code> ยังใช้งานได้อยู่ แต่ Microsoft ระบุว่าเป็นฟังก์ชันรุ่นเก่าแล้ว โดยแนะนำให้
+              ใช้ <code>CONCAT</code>, <code>TEXTJOIN</code> หรือเครื่องหมาย <code>&amp;</code> แทน สำหรับกรณีนี้
+              การใช้ <code>&amp;</code> ก็อ่านง่ายไม่แพ้กันและสั้นกว่าหนึ่งฟังก์ชัน:
+              <code>=TEXT(D4,"#,##0")&amp;" ("&amp;TEXT(E4,"#,##0")&amp;")"</code>
+            </p>
+          </div>
+
+          <h2>จัดการผลต่างที่เป็นค่าติดลบให้ดูสะอาดตา</h2>
+          <p>
+            ตัวเลขเทียบปีต่อปีมีทั้งเพิ่มขึ้นและลดลง และรูปแบบ <code>"#,##0"</code> ธรรมดาจะแสดงค่าที่ลดลงเป็น
+            <code>-355</code> อยู่ในวงเล็บ ซึ่งอาจทำให้อ่านผิดได้ง่ายเมื่อวางเทียบกับตัวเลขที่เป็นบวก การกำหนด
+            รูปแบบตัวเลขแบบมีเงื่อนไขสำหรับค่าติดลบช่วยแก้ปัญหานี้ได้โดยไม่ต้องเขียนสูตรเพิ่ม
+          </p>
+          <div class="code-block"><code>=TEXT(E4, "#,##0;(#,##0)")</code></div>
+          <p>
+            ส่วนที่อยู่หลังเครื่องหมายเซมิโคลอนจะถูกใช้เฉพาะตอนค่าติดลบเท่านั้น ทำให้ตัวเลขที่ลดลงแสดงอยู่ในวงเล็บ
+            ของตัวมันเอง แทนที่จะมีเครื่องหมายลบไปปนอยู่กลางป้ายที่มีวงเล็บอยู่แล้ว
+          </p>
+
+          <h2>เทคนิคนี้เอาไปใช้ได้ที่ไหนอีกบ้าง</h2>
+          <p>
+            เทคนิคนี้ไม่ได้จำกัดอยู่แค่ตัวเลขยอดขาย แนวทางจัดรูปแบบก่อนแล้วค่อยเชื่อมข้อความแบบนี้ เหมาะกับทุกจุด
+            ในรายงานที่ต้องการให้ตัวเลขกับบริบทของมันอยู่ในป้ายเดียวกัน เช่น
+          </p>
+          <ul>
+            <li><strong>สรุปผู้บริหาร:</strong> จำนวนพนักงานปัจจุบันพร้อมการเปลี่ยนแปลงจากไตรมาสก่อน</li>
+            <li><strong>รายงานงบประมาณ:</strong> ยอดใช้จ่ายจริงพร้อมผลต่างเทียบกับงบที่ตั้งไว้ พร้อมนำไปวางในสไลด์ได้ทันที</li>
+            <li><strong>แดชบอร์ด YTD:</strong> ยอดสะสมพร้อมผลต่างเทียบกับช่วงเดียวกันของปีก่อน ก่อนที่ข้อมูลจะถูกส่งต่อไปยัง Power BI</li>
+          </ul>
+          <p>
+            สร้างสูตรครั้งเดียว แล้วนำไปใช้ซ้ำได้โดยไม่มีต้นทุนเพิ่ม ไม่ว่าจะลากลงไปสี่แถวหรือสี่พันแถว การจัดรูป
+            แบบก็จัดการตัวเองได้ทั้งหมด
+          </p>
+
+        </div>
+
+        <div class="article-footer-cta">
+          <h3>อยากให้รายงานของคุณ "อ่านเข้าใจได้เอง" แบบนี้บ้างไหม</h3>
+          <p>เราช่วยทีมงานสร้างสูตร Excel และเทมเพลตรายงานที่เปลี่ยนข้อมูลดิบให้กลายเป็นตัวเลขที่คนอ่านเข้าใจได้ในพริบตา</p>
+          <a href="index.html#contact" class="btn btn-primary">ติดต่อทีมงานของเรา</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ RELATED ARTICLES ============ -->
+    <section class="related-section" aria-labelledby="related-heading">
+      <div class="container">
+        <h2 id="related-heading">อ่านต่อ</h2>
+        <div class="article-grid">
+
+          <article class="article-card">
+            <a class="article-card-media" href="excel-lambda-functions.html" aria-hidden="true" tabindex="-1">
+              <svg viewBox="0 0 400 240" role="img" aria-label="">
+                <defs>
+                  <linearGradient id="gradExcelRel5" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#1f7a4d"/>
+                    <stop offset="100%" stop-color="#2b4dfa"/>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="240" fill="url(#gradExcelRel5)"/>
+                <g stroke="rgba(255,255,255,0.35)" stroke-width="1.5">
+                  <line x1="0" y1="60" x2="400" y2="60"/>
+                  <line x1="0" y1="105" x2="400" y2="105"/>
+                  <line x1="0" y1="150" x2="400" y2="150"/>
+                  <line x1="0" y1="195" x2="400" y2="195"/>
+                  <line x1="90" y1="0" x2="90" y2="240"/>
+                  <line x1="200" y1="0" x2="200" y2="240"/>
+                  <line x1="310" y1="0" x2="310" y2="240"/>
+                </g>
+                <text x="200" y="140" text-anchor="middle" font-family="Georgia, serif" font-size="88" fill="#ffffff" opacity="0.95">&#955;</text>
+              </svg>
+            </a>
+            <div class="article-card-body">
+              <p class="article-category">Excel</p>
+              <h3><a href="excel-lambda-functions.html">ฟังก์ชัน LAMBDA ใน Excel: สร้างสูตรของคุณเองได้</a></h3>
+              <p class="article-desc">วิธีเปลี่ยนสูตรยาวๆ ที่ต้องพิมพ์ซ้ำ ให้กลายเป็นฟังก์ชันที่ตั้งชื่อเองและนำกลับมาใช้ใหม่ได้ โดยไม่ต้องพึ่ง VBA</p>
+              <div class="article-meta">
+                <span class="article-author">Data Reinvent Team</span>
+                <span class="dot" aria-hidden="true">•</span>
+                <span class="article-readtime">อ่าน 7 นาที</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="article-card">
+            <a class="article-card-media" href="power-bi-dashboard-design.html" aria-hidden="true" tabindex="-1">
+              <svg viewBox="0 0 400 240" role="img" aria-label="">
+                <defs>
+                  <linearGradient id="gradPBIRel5" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#e6399f"/>
+                    <stop offset="100%" stop-color="#7b2ff7"/>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="240" fill="url(#gradPBIRel5)"/>
+                <g fill="rgba(255,255,255,0.9)">
+                  <rect x="60" y="150" width="34" height="60"/>
+                  <rect x="110" y="110" width="34" height="100"/>
+                  <rect x="160" y="70" width="34" height="140"/>
+                  <rect x="210" y="130" width="34" height="80"/>
+                </g>
+                <polyline points="260,150 285,120 310,135 335,90" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+              </svg>
+            </a>
+            <div class="article-card-body">
+              <p class="article-category">Power BI</p>
+              <h3><a href="power-bi-dashboard-design.html">ออกแบบแดชบอร์ด Power BI ที่คนเปิดดูจริง</a></h3>
+              <p class="article-desc">พฤติกรรมด้านการจัดโครงสร้างข้อมูลและการจัดวางหน้าตา ที่แยกแดชบอร์ดที่คนเปิดดูทุกวัน ออกจากแดชบอร์ดที่ถูกมองข้าม</p>
+              <div class="article-meta">
+                <span class="article-author">Data Reinvent Team</span>
+                <span class="dot" aria-hidden="true">•</span>
+                <span class="article-readtime">อ่าน 8 นาที</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="article-card">
+            <a class="article-card-media" href="microsoft-copilot-for-business.html" aria-hidden="true" tabindex="-1">
+              <svg viewBox="0 0 400 240" role="img" aria-label="">
+                <defs>
+                  <linearGradient id="gradCopilotRel5" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#2b4dfa"/>
+                    <stop offset="100%" stop-color="#e6399f"/>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="240" fill="url(#gradCopilotRel5)"/>
+                <path d="M200 60 L214 106 L260 120 L214 134 L200 180 L186 134 L140 120 L186 106 Z" fill="#ffffff" opacity="0.95"/>
+                <path d="M300 70 L307 92 L330 100 L307 108 L300 130 L293 108 L270 100 L293 92 Z" fill="#ffffff" opacity="0.7"/>
+              </svg>
+            </a>
+            <div class="article-card-body">
+              <p class="article-category">Copilot</p>
+              <h3><a href="microsoft-copilot-for-business.html">ดึงประสิทธิภาพที่แท้จริงจาก Microsoft Copilot</a></h3>
+              <p class="article-desc">ทำไมการนำ Copilot มาใช้ส่วนใหญ่ถึงหยุดอยู่แค่ความอยากรู้อยากเห็น และแนวทางแบ่งตามบทบาทหน้าที่ที่ช่วยให้ทีมงานใช้งานจริงทุกวัน</p>
+              <div class="article-meta">
+                <span class="article-author">Data Reinvent Team</span>
+                <span class="dot" aria-hidden="true">•</span>
+                <span class="article-readtime">อ่าน 6 นาที</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <img src="Data Reinvent Logo.png" alt="Data Reinvent logo" class="brand-logo" />
+          <span class="brand-name">Data Reinvent</span>
+        </a>
+        <p>Reinventing the way organizations work with data.</p>
+      </div>
+
+      <nav class="footer-links" aria-label="Company">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="index.html#testimonials">Testimonials</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-links" aria-label="Services">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="index.html#services">Excel Consulting</a></li>
+          <li><a href="index.html#services">Power BI Solutions</a></li>
+          <li><a href="index.html#services">Copilot Solutions</a></li>
+          <li><a href="index.html#services">Data Analytics</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-links" aria-label="Insights &amp; Resources">
+        <h3>Insights</h3>
+        <ul>
+          <li><a href="excel-lambda-functions.html">Excel LAMBDA Functions</a></li>
+          <li><a href="power-bi-dashboard-design.html">Power BI Dashboard Design</a></li>
+          <li><a href="microsoft-copilot-for-business.html">Copilot for Business</a></li>
+          <li><a href="esg-analytics-with-excel.html">ESG Analytics with Excel</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year"></span> Data Reinvent. All rights reserved.</p>
+      <ul class="footer-legal">
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+      <a href="#top" class="back-to-top" id="backToTop" aria-label="Back to top">↑ Back to top</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

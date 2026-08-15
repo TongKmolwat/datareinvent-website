@@ -303,6 +303,24 @@ ul {
   color: var(--color-text-muted);
 }
 
+.about-copy {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-copy p:first-child {
+  font-size: 1.8rem;
+  line-height: 1.6;
+  font-style: italic;
+  color: var(--color-text);
+}
+
+.about-copy p:last-child {
+  font-size: 1.15rem;
+  color: var(--color-text-muted);
+}
+
 .about-principles {
   display: grid;
   gap: 1.5rem;
@@ -537,6 +555,10 @@ ul {
   transition: transform 0.35s ease;
 }
 
+img.article-thumb {
+  object-fit: cover;
+}
+
 .article-card:hover .article-thumb {
   transform: scale(1.04);
 }
@@ -592,10 +614,69 @@ ul {
   opacity: 0.6;
 }
 
+/* ---------- Insights pagination ---------- */
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 3rem;
+}
+
+.pagination-btn {
+  min-width: 2.5rem;
+  height: 2.5rem;
+  padding: 0 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.pagination-btn:hover:not(:disabled):not(.is-active),
+.pagination-btn:focus-visible:not(:disabled) {
+  border-color: var(--color-text);
+}
+
+.pagination-btn.is-active {
+  background: var(--color-text);
+  border-color: var(--color-text);
+  color: var(--color-bg);
+  cursor: default;
+}
+
+.pagination-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.pagination-arrow {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
 /* =====================================================
    Article Detail Pages
    (Medium-inspired reading layout, Fluent surfaces)
 ===================================================== */
+
+.article-cover {
+  margin: 2.5rem auto;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.article-cover-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
 .container-narrow {
   max-width: 700px;
