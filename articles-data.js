@@ -22,44 +22,24 @@
 
 const ARTICLES = [
   {
-    id: 'excel-lambda-functions',
-    href: 'excel-lambda-functions.html',
-    category: 'Excel',
-    title: 'ฟังก์ชัน LAMBDA ใน Excel: สร้างสูตรของคุณเองได้',
-    description: 'วิธีเปลี่ยนสูตรยาวๆ ที่ต้องพิมพ์ซ้ำ ให้กลายเป็นฟังก์ชันที่ตั้งชื่อเองและนำกลับมาใช้ใหม่ได้ โดยไม่ต้องพึ่ง VBA',
-    author: 'Data Reinvent Team',
-    readTime: 'อ่าน 7 นาที',
-    thumbnail: { type: 'lambda', colors: ['#1f7a4d', '#2b4dfa'] }
-  },
-  {
-    id: 'power-bi-dashboard-design',
-    href: 'power-bi-dashboard-design.html',
+    id: 'beyond-pl-300-dax-for-humans',
+    href: 'แชร์สไลด์-beyond-pl-300-the-definitive-guide-to-dax-for-humans.html',
     category: 'Power BI',
-    title: 'ออกแบบแดชบอร์ด Power BI ที่คนเปิดดูจริง',
-    description: 'พฤติกรรมด้านการจัดโครงสร้างข้อมูลและการจัดวางหน้าตา ที่แยกแดชบอร์ดที่คนเปิดดูทุกวัน ออกจากแดชบอร์ดที่ถูกมองข้าม',
-    author: 'Data Reinvent Team',
-    readTime: 'อ่าน 8 นาที',
-    thumbnail: { type: 'bars', colors: ['#e6399f', '#7b2ff7'] }
-  },
-  {
-    id: 'microsoft-copilot-for-business',
-    href: 'microsoft-copilot-for-business.html',
-    category: 'Copilot',
-    title: 'ดึงประสิทธิภาพที่แท้จริงจาก Microsoft Copilot',
-    description: 'ทำไมการนำ Copilot มาใช้ส่วนใหญ่ถึงหยุดอยู่แค่ความอยากรู้อยากเห็น และแนวทางแบ่งตามบทบาทหน้าที่ที่ช่วยให้ทีมงานใช้งานจริงทุกวัน',
-    author: 'Data Reinvent Team',
-    readTime: 'อ่าน 6 นาที',
-    thumbnail: { type: 'sparkle', colors: ['#2b4dfa', '#e6399f'] }
+    title: 'แชร์สไลด์ "Beyond PL - 300: The Definitive Guide to DAX for Humans"',
+    description: 'แชร์สไลด์ที่ไปพูดในงาน DATA DAY – STUDY GROUP 2026',
+    author: 'Reinvent Data',
+    readTime: 'อ่าน 5 นาที',
+    thumbnail: { type: 'image', src: 'Beyond PL-300 Slide Page.jpg', alt: 'แชร์สไลด์ "Beyond PL - 300: The Definitive Guide to DAX for Humans"' }
   },
   {
     id: 'esg-analytics-with-excel',
     href: 'esg-analytics-with-excel.html',
-    category: 'ESG Analytics',
-    title: 'สร้างโมเดลรายงาน ESG ใน Excel ก่อนขยายผล',
-    description: 'วิธีรวบรวมข้อมูล ESG ใน Excel อย่างเป็นระบบและตรวจสอบย้อนกลับได้ — ก่อนหรือควบคู่ไปกับการย้ายไปใช้ Power BI',
-    author: 'Data Reinvent Team',
-    readTime: 'อ่าน 7 นาที',
-    thumbnail: { type: 'leaf', colors: ['#ff7a3d', '#1f7a4d'] }
+    category: 'Book Review',
+    title: 'รีวิวหนังสือ DAX FOR HUMANS ที่ทำให้ DAX เข้าใจง่ายกว่าที่คิด',
+    description: 'ไปสะดุดกับหนังสือ Power BI ปกจัดจ้านเหมือนโปสเตอร์หนัง Sci-Fi เข้าโดยบังเอิญ แล้วก็วางไม่ลงจนต้องซื้อมาเก็บไว้เอง',
+    author: 'Reinvent Data',
+    readTime: 'อ่าน 4 นาที',
+    thumbnail: { type: 'image', src: 'DAX For Human.png', alt: 'ปกหนังสือ DAX FOR HUMANS โดย Greg Deckler' }
   },
   {
     id: 'excel-variance-number-formatting',
@@ -67,8 +47,18 @@ const ARTICLES = [
     category: 'Excel',
     title: 'จัดรูปแบบตัวเลขผลต่างให้ "อ่านเข้าใจได้เอง" ภายในไม่กี่วินาที',
     description: 'เทคนิคผสาน TEXT กับ CONCATENATE ที่เปลี่ยนตัวเลขเทียบปีต่อปีดิบๆ ให้กลายเป็นป้ายตัวเลขพร้อมใช้งานในรายงาน โดยไม่ต้องมานั่งพิมพ์คอมม่าทีละแถว',
-    author: 'Data Reinvent Team',
+    author: 'Reinvent Data',
     readTime: 'อ่าน 5 นาที',
     thumbnail: { type: 'image', src: 'Format Number.PNG', alt: 'ตัวอย่างการจัดรูปแบบตัวเลขความแปรปรวนใน Excel' }
+  },
+  {
+    id: 'implicit-vs-explicit-measure-power-bi',
+    href: 'การคำนวณ-implicit-vs-explicit-measure-บน-power-bi.html',
+    category: 'Power BI',
+    title: 'การคำนวณ Implicit VS Explicit Measure บน Power BI',
+    description: 'การคำนวณทั้งสองแบบให้ "ตัวเลข" ออกมาเหมือนกัน แต่หลายคนงงกันว่า Implicit Measure และ Explicit Measure ก่อนจะอธิบายว่าจะใช้ยังไง ขออธิบายความหมายการคำนวณทั้งสองแบบก่อน',
+    author: 'Reinvent Data',
+    readTime: 'อ่าน 5 นาที',
+    thumbnail: { type: 'image', src: 'Implicit VS Explicit Measure.jpg', alt: 'การคำนวณ Implicit VS Explicit Measure บน Power BI' }
   }
 ];

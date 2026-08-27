@@ -166,6 +166,20 @@ const THUMBNAIL_RENDERERS = {
         <line x1="310" y1="0" x2="310" y2="240"/>
       </g>
       <text x="200" y="134" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="34" fill="#ffffff" opacity="0.95">23,233 (912)</text>
+    </svg>`,
+
+  book: (gradientId, [from, to]) => `
+    <svg viewBox="0 0 400 240" role="img" aria-label="" class="article-thumb">
+      <defs>
+        <linearGradient id="${gradientId}" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="${from}"/>
+          <stop offset="100%" stop-color="${to}"/>
+        </linearGradient>
+      </defs>
+      <rect width="400" height="240" fill="url(#${gradientId})"/>
+      <path d="M100 90 C130 78 165 75 200 85 L200 175 C165 165 130 168 100 180 Z" fill="#ffffff" opacity="0.95"/>
+      <path d="M300 90 C270 78 235 75 200 85 L200 175 C235 165 270 168 300 180 Z" fill="#ffffff" opacity="0.95"/>
+      <line x1="200" y1="85" x2="200" y2="175" stroke="rgba(123,47,247,0.4)" stroke-width="3"/>
     </svg>`
 };
 
