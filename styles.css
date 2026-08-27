@@ -776,10 +776,12 @@ img.article-thumb {
   aspect-ratio: 21 / 9;
 }
 
-.article-cover svg {
+.article-cover svg,
+.article-cover img {
   width: 100%;
   height: 100%;
   display: block;
+  object-fit: cover;
 }
 
 .article-body {
