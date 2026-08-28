@@ -22,6 +22,16 @@
 
 const ARTICLES = [
   {
+    id: 'power-bi-pro-license-check',
+    href: 'วิธีเช็คง่ายๆว่าเรามี-power-bi-pro-license-หรือเปล่า.html',
+    category: 'Power BI',
+    title: 'วิธีเช็คง่ายๆว่าเรามี Power BI Pro License หรือเปล่า?',
+    description: 'หลายคนอาจจะสงสัยว่า  Power BI บนเครื่องเราเป็น  License แบบ Pro หรือเปล่า?',
+    author: 'Reinvent Data',
+    readTime: 'อ่าน 3 นาที',
+    thumbnail: { type: 'image', src: 'Check Power BI License.jpg', alt: 'วิธีเช็คง่ายๆว่าเรามี Power BI Pro License หรือเปล่า?' }
+  },
+  {
     id: 'beyond-pl-300-dax-for-humans',
     href: 'แชร์สไลด์-beyond-pl-300-the-definitive-guide-to-dax-for-humans.html',
     category: 'Power BI',
