@@ -22,6 +22,16 @@
 
 const ARTICLES = [
   {
+    id: 'dynamic-field-parameter-power-bi',
+    href: 'ปรับเปลี่ยนมิติมุมมองข้อมูลแบบ-dynamic-ด้วย-field-parameter.html',
+    category: 'Power BI',
+    title: 'ปรับเปลี่ยนมิติมุมมองข้อมูลแบบ Dynamic ด้วย Field Parameter',
+    description: 'เปลี่ยน Visual เดียวให้ตอบได้หลายคำถาม ด้วย Field Parameter',
+    author: 'Reinvent Data',
+    readTime: 'อ่าน 9 นาที',
+    thumbnail: { type: 'image', src: 'Field Parameter.JPG', alt: 'ปรับเปลี่ยนมิติมุมมองข้อมูลแบบ Dynamic ด้วย Field Parameter' }
+  },
+  {
     id: 'power-bi-pro-license-check',
     href: 'วิธีเช็คง่ายๆว่าเรามี-power-bi-pro-license-หรือเปล่า.html',
     category: 'Power BI',
