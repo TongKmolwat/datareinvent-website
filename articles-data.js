@@ -29,7 +29,7 @@ const ARTICLES = [
     description: 'เปลี่ยน Visual เดียวให้ตอบได้หลายคำถาม ด้วย Field Parameter',
     author: 'Reinvent Data',
     readTime: 'อ่าน 9 นาที',
-    thumbnail: { type: 'image', src: 'Field Parameter.JPG', alt: 'ปรับเปลี่ยนมิติมุมมองข้อมูลแบบ Dynamic ด้วย Field Parameter' }
+    thumbnail: { type: 'image', src: 'Field Parameter.jpg', alt: 'ปรับเปลี่ยนมิติมุมมองข้อมูลแบบ Dynamic ด้วย Field Parameter' }
   },
   {
     id: 'power-bi-pro-license-check',
