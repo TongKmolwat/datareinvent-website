@@ -22,6 +22,16 @@
 
 const ARTICLES = [
   {
+    id: 'dynamic-list-power-query',
+    href: 'จัดการข้อมูลแบบ-dynamic-ด้วย-list-บน-power-query.html',
+    category: 'Excel',
+    title: 'จัดการข้อมูลแบบ Dynamic ด้วย List บน Power Query',
+    description: 'รู้จักเรื่อง "List" โครงสร้างข้อมูลเรามีความยืดหยุ่นและพร้อมรับมือกับการเปลี่ยนแปลงของข้อมูลได้ดียิ่งขึ้น',
+    author: 'Reinvent Data',
+    readTime: 'อ่าน 12 นาที',
+    thumbnail: { type: 'image', src: 'List Comprehension.jpg', alt: 'จัดการข้อมูลแบบ Dynamic ด้วย List บน Power Query' }
+  },
+  {
     id: 'dynamic-field-parameter-power-bi',
     href: 'ปรับเปลี่ยนมิติมุมมองข้อมูลแบบ-dynamic-ด้วย-field-parameter.html',
     category: 'Power BI',
