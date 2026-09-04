@@ -22,6 +22,16 @@
 
 const ARTICLES = [
   {
+    id: 'implicit-vs-explicit-measure-power-bi-ep-2',
+    href: 'การคำนวณ-implicit-vs-explicit-measure-บน-power-bi-ep-2.html',
+    category: 'Power BI',
+    title: 'การคำนวณ Implicit VS Explicit Measure บน Power BI - EP.2',
+    description: 'การคำนวณทั้งสองแบบให้ "ตัวเลข" ออกมาเหมือนกัน แต่หลายคนงงกันว่า Implicit Measure และ Explicit Measure ก่อนจะอธิบายว่าจะใช้ยังไง ขออธิบายความหมายการคำนวณทั้งสองแบบก่อน',
+    author: 'Reinvent Data',
+    readTime: 'อ่าน 5 นาที',
+    thumbnail: { type: 'image', src: 'Implicit VS Explicit Measure.jpg', alt: 'การคำนวณ Implicit VS Explicit Measure บน Power BI - EP.2' }
+  },
+  {
     id: 'dynamic-list-power-query',
     href: 'จัดการข้อมูลแบบ-dynamic-ด้วย-list-บน-power-query.html',
     category: 'Excel',
