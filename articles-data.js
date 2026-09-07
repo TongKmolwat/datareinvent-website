@@ -22,6 +22,16 @@
 
 const ARTICLES = [
   {
+    id: 'row-level-security-rls',
+    href: 'ทำความรู้จักกับ-row-level-security-rls.html',
+    category: 'Power BI',
+    title: 'ทำความรู้จักกับ Row level security (RLS)',
+    description: 'การกำหนดสิทธิการเห็นข้อมูลของผู้ใช้งานแต่ละคนด้วย Static RLS',
+    author: 'Reinvent Data',
+    readTime: 'อ่าน 12 นาที',
+    thumbnail: { type: 'image', src: 'RLS.png', alt: 'ทำความรู้จักกับ Row level security (RLS)' }
+  },
+  {
     id: 'implicit-vs-explicit-measure-power-bi-ep-2',
     href: 'การคำนวณ-implicit-vs-explicit-measure-บน-power-bi-ep-2.html',
     category: 'Power BI',
