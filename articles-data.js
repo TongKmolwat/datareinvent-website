@@ -22,6 +22,16 @@
 
 const ARTICLES = [
   {
+    id: 'inactive-relationship',
+    href: 'เส้นประปริศนา-เรื่องราวของ-inactive-relationship.html',
+    category: 'Power BI',
+    title: '"เส้นประปริศนา" เรื่องราวของ Inactive Relationship',
+    description: 'วันหนึ่งมีคนที่ใช้ Report แล้วเดินมาถามว่า...  "ขอดูทั้ง ยอดขาย และ ยอดคืนเงิน แยกตามเดือนและปีในตารางเดียวกันได้ไหม?"',
+    author: 'Reinvent Data',
+    readTime: 'อ่าน 6 นาที',
+    thumbnail: { type: 'image', src: 'Inactive Relationship.png', alt: '&quot;เส้นประปริศนา&quot; เรื่องราวของ Inactive Relationship' }
+  },
+  {
     id: 'row-level-security-rls',
     href: 'ทำความรู้จักกับ-row-level-security-rls.html',
     category: 'Power BI',
