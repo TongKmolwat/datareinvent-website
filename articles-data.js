@@ -22,6 +22,16 @@
 
 const ARTICLES = [
   {
+    id: 'excel-shortcut-keys-6',
+    href: 'คีย์ลัด-excel-มีเป็นร้อย-แต่ผมใช้จริงแค่-6-ตัว.html',
+    category: 'Excel',
+    title: 'คีย์ลัด Excel มีเป็นร้อย… แต่ผมใช้จริงแค่ 6 ตัว!!',
+    description: 'ตัวคีย์ลัด Excel มีจำนวนมากเป็นหลายร้อยๆ คำสั่ง แต่เชื่อไหมครับคีย์ที่ผมใช้เป็นประจำ มีเพียงแค่ 6 ตัวเท่านั้น',
+    author: 'Reinvent Data',
+    readTime: 'อ่าน 4 นาที',
+    thumbnail: { type: 'image', src: 'Shortcut Key Excel.png', alt: 'คีย์ลัด Excel มีเป็นร้อย… แต่ผมใช้จริงแค่ 6 ตัว!!' }
+  },
+  {
     id: 'inactive-relationship',
     href: 'เส้นประปริศนา-เรื่องราวของ-inactive-relationship.html',
     category: 'Power BI',
