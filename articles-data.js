@@ -26,7 +26,7 @@ const ARTICLES = [
     href: 'ความทรงจำประทับใจใน-microsoft-copilot-community-และเจตจำนงแห่ง-mvp.html',
     category: 'Excel',
     title: 'ความทรงจำประทับใจใน Microsoft Copilot Community และเจตจำนงแห่ง MVP',
-    description: 'มื่อตอนเย็น วันที่ 24 กรกฎาคม ผมได้เช็ค Email ส่วนตัว เพิ่งเห็นว่าตัวเองได้รับคัดเลือกเป็น Speaker',
+    description: 'เมื่อตอนเย็น วันที่ 24 กรกฎาคม ผมได้เช็ค Email ส่วนตัว เพิ่งเห็นว่าตัวเองได้รับคัดเลือกเป็น Speaker',
     author: 'Reinvent Data',
     readTime: 'อ่าน 6 นาที',
     thumbnail: { type: 'image', src: 'Will of MVP.png', alt: 'ความทรงจำประทับใจใน Microsoft Copilot Community และเจตจำนงแห่ง MVP' }
