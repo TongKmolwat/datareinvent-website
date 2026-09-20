@@ -22,6 +22,16 @@
 
 const ARTICLES = [
   {
+    id: 'ytd-yoy-cumulative-dax',
+    href: 'ytd-และ-yoy-cumulative-จะต้องเขียน-dax-อย่างไรนะ.html',
+    category: 'Power BI',
+    title: 'YTD และ YoY Cumulative - จะต้องเขียน DAX อย่างไรนะ?',
+    description: 'วันนี้ก็จะมาแชร์เทคนิคการคำนวณ DAX บน Power BI ที่เป็นที่นิยม นั่นก็คือ YTD และ YoY Cumulative',
+    author: 'Reinvent Data',
+    readTime: 'อ่าน 6 นาที',
+    thumbnail: { type: 'image', src: 'YTD and YoY.png', alt: 'YTD และ YoY Cumulative - จะต้องเขียน DAX อย่างไรนะ?' }
+  },
+  {
     id: 'microsoft-copilot-community-mvp',
     href: 'ความทรงจำประทับใจใน-microsoft-copilot-community-และเจตจำนงแห่ง-mvp.html',
     category: 'Excel',
