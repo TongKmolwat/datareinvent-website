@@ -22,6 +22,16 @@
 
 const ARTICLES = [
   {
+    id: 'excel-filter-function',
+    href: 'สูตร-excel-ที่ผมอยากให้ทุกคนรู้จัก-filter.html',
+    category: 'Excel',
+    title: 'สูตร Excel ที่ผมอยากให้ทุกคนรู้จัก... FILTER',
+    description: 'และเป็นหนึ่งในสูตร Excel ที่ผมชอบมากด้วยครับ',
+    author: 'Reinvent Data',
+    readTime: 'อ่าน 8 นาที',
+    thumbnail: { type: 'image', src: 'FILTER.png', alt: 'สูตร Excel ที่ผมอยากให้ทุกคนรู้จัก... FILTER' }
+  },
+  {
     id: 'ytd-yoy-cumulative-dax',
     href: 'ytd-และ-yoy-cumulative-จะต้องเขียน-dax-อย่างไรนะ.html',
     category: 'Power BI',
