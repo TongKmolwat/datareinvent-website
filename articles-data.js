@@ -22,6 +22,16 @@
 
 const ARTICLES = [
   {
+    id: 'trend-line',
+    href: 'ว่ากันเรื่องของ-trend-line.html',
+    category: 'DAX',
+    title: 'ว่ากันเรื่องของ Trend line',
+    description: 'โดยปกติ ในงาน Report ที่ทำกราฟเกี่ยวกับ Forecast ดูแนวโน้มอนาคตข้างหน้าว่าจะมีทิศทางอย่างไร',
+    author: 'Reinvent Data',
+    readTime: 'อ่าน 8 นาที',
+    thumbnail: { type: 'image', src: 'Trendline.png', alt: 'ว่ากันเรื่องของ Trend line' }
+  },
+  {
     id: 'excel-filter-function',
     href: 'สูตร-excel-ที่ผมอยากให้ทุกคนรู้จัก-filter.html',
     category: 'Excel',
