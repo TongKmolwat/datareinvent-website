@@ -22,6 +22,16 @@
 
 const ARTICLES = [
   {
+    id: 'azure-maps-ep-1-flood-data-power-bi',
+    href: 'azure-maps-ep-1-plot-ข้อมูลน้ำท่วมแสดงบน-power-bi.html',
+    category: 'Power BI',
+    title: 'Azure Maps EP.1 - Plot ข้อมูลน้ำท่วมแสดงบน Power BI',
+    description: 'วันที่ 26-28 กันยายน 2569 ที่ผ่านมา ....... หลายคนคงได้เจอกับน้ำท่วมครั้งใหญ่อีกครั้ง โดยเฉพาะคนกรุงเทพฯ',
+    author: 'Reinvent Data',
+    readTime: 'อ่าน 8 นาที',
+    thumbnail: { type: 'image', src: 'Azure Maps.png', alt: 'Azure Maps EP.1 - Plot ข้อมูลน้ำท่วมแสดงบน Power BI' }
+  },
+  {
     id: 'trend-line',
     href: 'ว่ากันเรื่องของ-trend-line.html',
     category: 'DAX',
