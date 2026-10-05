@@ -22,6 +22,16 @@
 
 const ARTICLES = [
   {
+    id: 'excel-apostrophe-character',
+    href: 'อักขระคล้าย-apostrophe-ที่กวนใจ.html',
+    category: 'Excel',
+    title: 'อักขระคล้าย apostrophe ที่กวนใจ',
+    description: 'โพสต์นึงใน Excel Group ถามคำถามสั้นๆ แค่นี้เลย "จะลบ (\') ข้างหน้าอย่างไร?"',
+    author: 'Reinvent Data',
+    readTime: 'อ่าน 2 นาที',
+    thumbnail: { type: 'image', src: 'apostrophe.png', alt: 'อักขระคล้าย apostrophe ที่กวนใจ' }
+  },
+  {
     id: 'azure-maps-ep-1-flood-data-power-bi',
     href: 'azure-maps-ep-1-plot-ข้อมูลน้ำท่วมแสดงบน-power-bi.html',
     category: 'Power BI',
