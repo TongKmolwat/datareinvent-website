@@ -22,6 +22,16 @@
 
 const ARTICLES = [
   {
+    id: 'claude-in-excel-super-vlookup',
+    href: 'ใช้-claude-in-excel-สร้างสูตร-super-vlookup-เหนือชั้น.html',
+    category: 'Excel',
+    title: 'ใช้ Claude in Excel สร้างสูตร Super Vlookup เหนือชั้น',
+    description: 'ปกติ เราเคยใช้ Excel น่าจะคุ้นเคยกับสูตรที่ใช้ Match ข้อมูล ไม่ว่าจะเป็น VLOOKUP, INDEX+MATCH หรือ XLOOKUP  แต่ข้อเสียก็คือ....',
+    author: 'Reinvent Data',
+    readTime: 'อ่าน 8 นาที',
+    thumbnail: { type: 'image', src: 'JACCARD.png', alt: 'ใช้ Claude in Excel สร้างสูตร Super Vlookup เหนือชั้น' }
+  },
+  {
     id: 'excel-apostrophe-character',
     href: 'อักขระคล้าย-apostrophe-ที่กวนใจ.html',
     category: 'Excel',
