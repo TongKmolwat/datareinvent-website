@@ -22,6 +22,16 @@
 
 const ARTICLES = [
   {
+    id: 'power-bi-export-pdf-email-power-automate',
+    href: 'export-รายงาน-power-bi-เป็น-pdf-แล้วส่ง-email-อัตโนมัติด้วย-power-automate.html',
+    category: 'Power BI',
+    title: 'Export รายงาน Power BI เป็น PDF แล้วส่ง Email อัตโนมัติด้วย Power Automate',
+    description: 'เทคนิคใช้ Power Automate สั่ง Export รายงาน Power BI เป็น PDF พร้อมกรองข้อมูล แล้วส่งเข้า Email',
+    author: 'Reinvent Data',
+    readTime: 'อ่าน 7 นาที',
+    thumbnail: { type: 'image', src: 'Export BI PDF.png', alt: 'Export รายงาน Power BI เป็น PDF แล้วส่ง Email อัตโนมัติด้วย Power Automate' }
+  },
+  {
     id: 'claude-in-excel-super-vlookup',
     href: 'ใช้-claude-in-excel-สร้างสูตร-super-vlookup-เหนือชั้น.html',
     category: 'Excel',
