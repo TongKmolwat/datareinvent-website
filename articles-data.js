@@ -22,6 +22,16 @@
 
 const ARTICLES = [
   {
+    id: 'excel-formula-all-sheets-at-once',
+    href: 'ใส่สูตร-excel-ทีเดียวได้ทุกหน้าพร้อมกัน.html',
+    category: 'Excel',
+    title: 'ใส่สูตร Excel ทีเดียวได้ทุกหน้าพร้อมกัน',
+    description: 'สมมุติเรามี Excel หลาย Sheet และเป็นข้อมูล Report ประเภทเดียวกัน และเป็นไปได้ไหมครับที่จะสามารถใส่สูตรทุกหน้าพร้อมกัน? เช่น สูตร SUM',
+    author: 'Reinvent Data',
+    readTime: 'อ่าน 2 นาที',
+    thumbnail: { type: 'image', src: 'SUM One Shot.png', alt: 'ใส่สูตร Excel ทีเดียวได้ทุกหน้าพร้อมกัน' }
+  },
+  {
     id: 'power-bi-export-pdf-email-power-automate',
     href: 'export-รายงาน-power-bi-เป็น-pdf-แล้วส่ง-email-อัตโนมัติด้วย-power-automate.html',
     category: 'Power BI',
