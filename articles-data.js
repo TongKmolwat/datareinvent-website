@@ -22,6 +22,16 @@
 
 const ARTICLES = [
   {
+    id: 'row-level-security-rls-ep-2',
+    href: 'ทำความรู้จักกับ-row-level-security-rls-ep-2.html',
+    category: 'Power BI',
+    title: 'ทำความรู้จักกับ Row level security (RLS) EP.2',
+    description: 'ในบทความที่แล้วเราพูดถึง Static RLS เราจะพูดถึงสิ่งที่เรียกว่า Dynamic RLS กันครับ',
+    author: 'Reinvent Data',
+    readTime: 'อ่าน 15 นาที',
+    thumbnail: { type: 'image', src: 'Dynamic RLS.png', alt: 'ทำความรู้จักกับ Row level security (RLS) EP.2' }
+  },
+  {
     id: 'excel-formula-all-sheets-at-once',
     href: 'ใส่สูตร-excel-ทีเดียวได้ทุกหน้าพร้อมกัน.html',
     category: 'Excel',
