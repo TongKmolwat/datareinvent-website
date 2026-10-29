@@ -22,6 +22,16 @@
 
 const ARTICLES = [
   {
+    id: 'create-skill-md',
+    href: 'สร้าง-skill-md.html',
+    category: 'AI',
+    title: 'สร้าง SKILL.md',
+    description: 'วันนี้เราจะมาคุยกันเรื่อง SKILL.md ของ Claude กันครับ',
+    author: 'Reinvent Data',
+    readTime: 'อ่าน 15 นาที',
+    thumbnail: { type: 'image', src: 'Skill for Claude.png', alt: 'สร้าง SKILL.md' }
+  },
+  {
     id: 'row-level-security-rls-ep-2',
     href: 'ทำความรู้จักกับ-row-level-security-rls-ep-2.html',
     category: 'Power BI',
